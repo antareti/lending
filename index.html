@@ -84,8 +84,6 @@
         .nav-logo span { color: var(--accent); }
 
         .nav-cta {
-            display: inline-block;
-            text-decoration: none;
             padding: 10px 28px;
             background: var(--accent);
             color: var(--bg-primary);
@@ -188,8 +186,6 @@
         }
 
         .btn-primary {
-            display: inline-block;
-            text-decoration: none;
             padding: 18px 40px;
             background: var(--accent);
             color: var(--bg-primary);
@@ -226,8 +222,6 @@
         }
 
         .btn-secondary {
-            display: inline-block;
-            text-decoration: none;
             padding: 18px 40px;
             background: transparent;
             color: var(--text-primary);
@@ -256,6 +250,7 @@
             overflow: hidden;
             aspect-ratio: 3/4;
             max-height: 700px;
+            background: var(--bg-card);
         }
 
         .hero-image-container::before {
@@ -554,8 +549,6 @@
         .offer-features li .check { color: var(--accent); font-weight: 700; }
 
         .offer-btn {
-            display: block;
-            text-decoration: none;
             width: 100%;
             padding: 16px;
             border-radius: 100px;
@@ -565,7 +558,6 @@
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
-            text-align: center;
         }
 
         .offer-btn.primary { background: var(--accent); color: var(--bg-primary); border: none; }
@@ -757,8 +749,6 @@
         .cta-text { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 40px; position: relative; }
 
         .cta-btn {
-            display: inline-block;
-            text-decoration: none;
             padding: 20px 60px;
             background: var(--accent);
             color: var(--bg-primary);
@@ -926,6 +916,76 @@
             90% { opacity: 0.15; }
             100% { transform: translateY(-100px) rotate(720deg); opacity: 0; }
         }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.4s ease;
+        }
+
+        .modal-overlay.active { opacity: 1; pointer-events: all; }
+
+        .modal {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 50px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            transform: scale(0.9);
+            transition: transform 0.4s ease;
+            position: relative;
+        }
+
+        .modal-overlay.active .modal { transform: scale(1); }
+
+        .modal-close {
+            position: absolute;
+            top: 20px; right: 20px;
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .modal-close:hover { border-color: var(--accent); color: var(--accent); }
+        .modal h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 12px; }
+        .modal p { color: var(--text-secondary); margin-bottom: 30px; font-size: 0.95rem; }
+
+        .modal input {
+            width: 100%;
+            padding: 16px 20px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            margin-bottom: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .modal input:focus { border-color: var(--accent); }
+        .modal input::placeholder { color: var(--text-muted); }
+        .modal .btn-primary { width: 100%; margin-top: 8px; }
     </style>
 </head>
 <body>
@@ -935,7 +995,7 @@
 
     <nav class="navbar" id="navbar">
         <div class="nav-logo">RAS<span>GON</span></div>
-        <a href="https://t.me/+VdUe5nYlSMgxZGUy" class="nav-cta" target="_blank">Начать</a>
+        <button class="nav-cta" onclick="openModal()">Начать</button>
     </nav>
 
     <section class="hero">
@@ -953,8 +1013,8 @@
                     ты раньше мог только мечтать.
                 </p>
                 <div class="hero-buttons">
-                    <a href="https://t.me/+VdUe5nYlSMgxZGUy" class="btn-primary" target="_blank">Получить предложение</a>
-                    <a href="#about" class="btn-secondary">Узнать больше</a>
+                    <button class="btn-primary" onclick="openModal()">Получить предложение</button>
+                    <button class="btn-secondary" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">Узнать больше</button>
                 </div>
                 <div class="hero-stats">
                     <div class="stat-item">
@@ -973,7 +1033,7 @@
             </div>
             <div class="hero-image-wrapper">
                 <div class="hero-image-container">
-                    <img src="https://r.jina.ai/i/6ef446ca155447a1955c4d34d31481b7" alt="Rasgon">
+                    <img src="https://image.qwenlm.ai/public_source/9c7bb515-10f8-4190-8c6b-d34b33b8e1c5/1d581de24-95e6-47b7-8d38-673e2fe35d32.png" alt="Rasgon">
                 </div>
                 <div class="hero-image-frame"></div>
             </div>
@@ -1023,7 +1083,7 @@
                     <p class="card-text">Персональная стратегия, адаптированная под твои цели, текущий уровень и темп жизни.</p>
                 </div>
                 <div class="about-card reveal">
-                    <div class="card-icon">📝</div>
+                    <div class="card-icon">🧠</div>
                     <h3 class="card-title">Ежедневная практика</h3>
                     <p class="card-text">Структурированные ежедневные задания, которые формируют привычки успешных людей.</p>
                 </div>
@@ -1033,12 +1093,12 @@
                     <p class="card-text">Прозрачная система метрик и регулярные отчёты о твоём продвижении к цели.</p>
                 </div>
                 <div class="about-card reveal">
-                    <div class="card-icon">👥</div>
+                    <div class="card-icon">🤝</div>
                     <h3 class="card-title">Личное менторство</h3>
                     <p class="card-text">Прямой доступ к ментору для разбора сложных ситуаций и корректировки стратегии.</p>
                 </div>
                 <div class="about-card reveal">
-                    <div class="card-icon">🧠</div>
+                    <div class="card-icon">💡</div>
                     <h3 class="card-title">Работа с мышлением</h3>
                     <p class="card-text">Техники перепрограммирования ограничивающих убеждений и установки на рост.</p>
                 </div>
@@ -1074,7 +1134,7 @@
                         <li><span class="check">✓</span> Доступ к сообществу</li>
                         <li><span class="check">✓</span> 3 месяца поддержки</li>
                     </ul>
-                    <a href="https://t.me/+VdUe5nYlSMgxZGUy" class="offer-btn secondary" target="_blank">Выбрать</a>
+                    <button class="offer-btn secondary" onclick="openModal()">Выбрать</button>
                 </div>
                 <div class="offer-card featured reveal">
                     <div class="offer-tier">Оптимальный</div>
@@ -1088,7 +1148,7 @@
                         <li><span class="check">✓</span> Приоритетная поддержка</li>
                         <li><span class="check">✓</span> 6 месяцев поддержки</li>
                     </ul>
-                    <a href="https://t.me/+VdUe5nYlSMgxZGUy" class="offer-btn primary" target="_blank">Выбрать</a>
+                    <button class="offer-btn primary" onclick="openModal()">Выбрать</button>
                 </div>
                 <div class="offer-card reveal">
                     <div class="offer-tier">Максимальный</div>
@@ -1102,7 +1162,7 @@
                         <li><span class="check">✓</span> VIP-сообщество</li>
                         <li><span class="check">✓</span> 12 месяцев поддержки</li>
                     </ul>
-                    <a href="https://t.me/+VdUe5nYlSMgxZGUy" class="offer-btn secondary" target="_blank">Выбрать</a>
+                    <button class="offer-btn secondary" onclick="openModal()">Выбрать</button>
                 </div>
             </div>
         </div>
@@ -1214,7 +1274,7 @@
         <div class="cta-container reveal">
             <h2 class="cta-title">Готов начать свою<br>трансформацию?</h2>
             <p class="cta-text">Оставь заявку сейчас и получи бесплатную консультацию. Количество мест ограничено.</p>
-            <a href="https://t.me/+VdUe5nYlSMgxZGUy" class="cta-btn" target="_blank">Оставить заявку</a>
+            <button class="cta-btn" onclick="openModal()">Оставить заявку</button>
         </div>
     </section>
 
@@ -1223,12 +1283,24 @@
             <div class="footer-logo">RAS<span>GON</span></div>
             <div class="footer-copy">© 2026 Rasgon. Все права защищены.</div>
             <div class="footer-socials">
-                <a class="social-link" href="https://t.me/+VdUe5nYlSMgxZGUy" target="_blank">TG</a>
+                <a class="social-link" href="#">TG</a>
                 <a class="social-link" href="#">VK</a>
                 <a class="social-link" href="#">YT</a>
             </div>
         </div>
     </footer>
+
+    <div class="modal-overlay" id="modal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal()"></button>
+            <h3>Оставить заявку</h3>
+            <p>Заполните форму и мы свяжемся с вами в ближайшее время</p>
+            <input type="text" placeholder="Ваше имя" id="modalName">
+            <input type="text" placeholder="Telegram или телефон" id="modalContact">
+            <input type="text" placeholder="Ваша цель" id="modalGoal">
+            <button class="btn-primary" onclick="submitForm()">Отправить заявку</button>
+        </div>
+    </div>
 
     <script>
         const cursorGlow = document.getElementById('cursorGlow');
@@ -1287,6 +1359,36 @@
             particle.style.height = size + 'px';
             particlesContainer.appendChild(particle);
         }
+
+        function openModal() {
+            document.getElementById('modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('modal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('modal')) closeModal();
+        });
+
+        function submitForm() {
+            const name = document.getElementById('modalName').value;
+            const contact = document.getElementById('modalContact').value;
+            if (name && contact) {
+                alert('Спасибо за заявку, ' + name + '! Мы свяжемся с вами в ближайшее время.');
+                closeModal();
+                document.getElementById('modalName').value = '';
+                document.getElementById('modalContact').value = '';
+                document.getElementById('modalGoal').value = '';
+            } else {
+                alert('Пожалуйста, заполните обязательные поля.');
+            }
+        }
+
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 
         window.addEventListener('scroll', () => {
             const scrolled = window.scrollY;
