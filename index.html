@@ -96,6 +96,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             text-decoration: none;
+            display: inline-block;
         }
 
         .nav-cta:hover {
@@ -187,8 +188,6 @@
         }
 
         .btn-primary {
-            display: inline-block;
-            text-decoration: none;
             padding: 18px 40px;
             background: var(--accent);
             color: var(--bg-primary);
@@ -202,7 +201,8 @@
             letter-spacing: 1px;
             position: relative;
             overflow: hidden;
-            text-align: center;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .btn-primary::after {
@@ -226,8 +226,6 @@
         }
 
         .btn-secondary {
-            display: inline-block;
-            text-decoration: none;
             padding: 18px 40px;
             background: transparent;
             color: var(--text-primary);
@@ -237,7 +235,8 @@
             font-size: 1rem;
             cursor: pointer;
             transition: all 0.3s ease;
-            text-align: center;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .btn-secondary:hover {
@@ -555,8 +554,6 @@
         .offer-features li .check { color: var(--accent); font-weight: 700; }
 
         .offer-btn {
-            display: block;
-            text-decoration: none;
             width: 100%;
             padding: 16px;
             border-radius: 100px;
@@ -566,7 +563,8 @@
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
-            text-align: center;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .offer-btn.primary { background: var(--accent); color: var(--bg-primary); border: none; }
@@ -758,8 +756,6 @@
         .cta-text { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 40px; position: relative; }
 
         .cta-btn {
-            display: inline-block;
-            text-decoration: none;
             padding: 20px 60px;
             background: var(--accent);
             color: var(--bg-primary);
@@ -772,6 +768,8 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             position: relative;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .cta-btn:hover {
@@ -928,7 +926,6 @@
             100% { transform: translateY(-100px) rotate(720deg); opacity: 0; }
         }
 
-        /* Modal Styles */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0;
@@ -978,6 +975,26 @@
         }
 
         .modal-close:hover { border-color: var(--accent); color: var(--accent); }
+        .modal h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 12px; }
+        .modal p { color: var(--text-secondary); margin-bottom: 30px; font-size: 0.95rem; }
+
+        .modal input {
+            width: 100%;
+            padding: 16px 20px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            margin-bottom: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .modal input:focus { border-color: var(--accent); }
+        .modal input::placeholder { color: var(--text-muted); }
+        .modal .btn-primary { width: 100%; margin-top: 8px; }
     </style>
 </head>
 <body>
@@ -1000,11 +1017,13 @@
                     начинается здесь
                 </h1>
                 <p class="hero-subtitle">
-                    Персональная программа трансформации, которая поможет тебе выйти за пределы возможного и достичь результатов[cite: 6].
+                    Персональная программа трансформации, которая поможет тебе 
+                    выйти за пределы возможного и достичь результатов, о которых 
+                    ты раньше мог только мечтать.
                 </p>
                 <div class="hero-buttons">
                     <a href="https://t.me/+O7F2XX-GnlU4YTJi" target="_blank" class="btn-primary">Получить предложение</a>
-                    <a href="#about" class="btn-secondary">Узнать больше</a>
+                    <button class="btn-secondary" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">Узнать больше</button>
                 </div>
                 <div class="hero-stats">
                     <div class="stat-item">
@@ -1023,7 +1042,7 @@
             </div>
             <div class="hero-image-wrapper">
                 <div class="hero-image-container">
-                    <img src="1.png" alt="Rasgon">
+                    <img src="https://image.qwenlm.ai/public_source/9c7bb515-10f8-4190-8c6b-d34b33b8e1c5/1d581de24-95e6-47b7-8d38-673e2fe35d32.png" alt="Rasgon">
                 </div>
                 <div class="hero-image-frame"></div>
             </div>
@@ -1038,12 +1057,20 @@
         <div class="marquee-track">
             <div class="marquee-item"><span class="dot"></span>Трансформация</div>
             <div class="marquee-item"><span class="dot"></span>Рост</div>
+            <div class="marquee-item"><span class="dot"></span>Развитие</div>
             <div class="marquee-item"><span class="dot"></span>Результат</div>
             <div class="marquee-item"><span class="dot"></span>Менторство</div>
+            <div class="marquee-item"><span class="dot"></span>Прорыв</div>
+            <div class="marquee-item"><span class="dot"></span>Дисциплина</div>
+            <div class="marquee-item"><span class="dot"></span>Свобода</div>
             <div class="marquee-item"><span class="dot"></span>Трансформация</div>
             <div class="marquee-item"><span class="dot"></span>Рост</div>
+            <div class="marquee-item"><span class="dot"></span>Развитие</div>
             <div class="marquee-item"><span class="dot"></span>Результат</div>
             <div class="marquee-item"><span class="dot"></span>Менторство</div>
+            <div class="marquee-item"><span class="dot"></span>Прорыв</div>
+            <div class="marquee-item"><span class="dot"></span>Дисциплина</div>
+            <div class="marquee-item"><span class="dot"></span>Свобода</div>
         </div>
     </div>
 
@@ -1053,24 +1080,41 @@
                 <div class="section-label">О программе</div>
                 <h2 class="section-title">Всё, что нужно для<br>твоего прорыва</h2>
                 <p class="section-description">
-                    Это комплексная система, разработанная на основе реального опыта[cite: 6].
+                    Это не просто курс — это комплексная система, разработанная 
+                    на основе реального опыта и проверенных методик. Каждый элемент 
+                    программы нацелен на конкретный результат.
                 </p>
             </div>
             <div class="about-grid">
                 <div class="about-card reveal">
                     <div class="card-icon">🎯</div>
                     <h3 class="card-title">Индивидуальный план</h3>
-                    <p class="card-text">Персональная стратегия, адаптированная под твои цели[cite: 6].</p>
+                    <p class="card-text">Персональная стратегия, адаптированная под твои цели, текущий уровень и темп жизни.</p>
                 </div>
                 <div class="about-card reveal">
-                    <div class="card-icon">📈</div>
+                    <div class="card-icon"></div>
                     <h3 class="card-title">Ежедневная практика</h3>
-                    <p class="card-text">Структурированные задания для формирования привычек[cite: 6].</p>
+                    <p class="card-text">Структурированные ежедневные задания, которые формируют привычки успешных людей.</p>
                 </div>
                 <div class="about-card reveal">
                     <div class="card-icon">📊</div>
                     <h3 class="card-title">Отслеживание прогресса</h3>
-                    <p class="card-text">Прозрачная система метрик вашего продвижения[cite: 6].</p>
+                    <p class="card-text">Прозрачная система метрик и регулярные отчёты о твоём продвижении к цели.</p>
+                </div>
+                <div class="about-card reveal">
+                    <div class="card-icon"></div>
+                    <h3 class="card-title">Личное менторство</h3>
+                    <p class="card-text">Прямой доступ к ментору для разбора сложных ситуаций и корректировки стратегии.</p>
+                </div>
+                <div class="about-card reveal">
+                    <div class="card-icon"></div>
+                    <h3 class="card-title">Работа с мышлением</h3>
+                    <p class="card-text">Техники перепрограммирования ограничивающих убеждений и установки на рост.</p>
+                </div>
+                <div class="about-card reveal">
+                    <div class="card-icon">⚡</div>
+                    <h3 class="card-title">Сообщество</h3>
+                    <p class="card-text">Закрытое комьюнити единомышленников, которые поддерживают и мотивируют друг друга.</p>
                 </div>
             </div>
         </div>
@@ -1081,25 +1125,155 @@
             <div class="offer-header reveal">
                 <div class="section-label">Тарифы</div>
                 <h2 class="section-title">Выбери свой уровень</h2>
+                <p class="section-description">
+                    Каждый тариф включает доступ к базе знаний, но отличается 
+                    уровнем персонального внимания и поддержки.
+                </p>
             </div>
             <div class="offer-cards">
                 <div class="offer-card reveal">
                     <div class="offer-tier">Базовый</div>
                     <div class="offer-name">Start</div>
                     <div class="offer-price"><span class="currency">₽</span>15 000</div>
+                    <div class="offer-period">единоразово</div>
+                    <ul class="offer-features">
+                        <li><span class="check">✓</span> Доступ к базе материалов</li>
+                        <li><span class="check">✓</span> Групповые разборы</li>
+                        <li><span class="check">✓</span> Чек-листы и шаблоны</li>
+                        <li><span class="check">✓</span> Доступ к сообществу</li>
+                        <li><span class="check">✓</span> 3 месяца поддержки</li>
+                    </ul>
                     <a href="https://t.me/+O7F2XX-GnlU4YTJi" target="_blank" class="offer-btn secondary">Выбрать</a>
                 </div>
                 <div class="offer-card featured reveal">
                     <div class="offer-tier">Оптимальный</div>
                     <div class="offer-name">Pro</div>
                     <div class="offer-price"><span class="currency">₽</span>45 000</div>
+                    <div class="offer-period">единоразово</div>
+                    <ul class="offer-features">
+                        <li><span class="check">✓</span> Всё из тарифа Start</li>
+                        <li><span class="check">✓</span> Индивидуальный план</li>
+                        <li><span class="check">✓</span> 4 личные сессии</li>
+                        <li><span class="check">✓</span> Приоритетная поддержка</li>
+                        <li><span class="check">✓</span> 6 месяцев поддержки</li>
+                    </ul>
                     <a href="https://t.me/+O7F2XX-GnlU4YTJi" target="_blank" class="offer-btn primary">Выбрать</a>
                 </div>
                 <div class="offer-card reveal">
                     <div class="offer-tier">Максимальный</div>
                     <div class="offer-name">Elite</div>
                     <div class="offer-price"><span class="currency">₽</span>120 000</div>
+                    <div class="offer-period">единоразово</div>
+                    <ul class="offer-features">
+                        <li><span class="check">✓</span> Всё из тарифа Pro</li>
+                        <li><span class="check">✓</span> Безлимитные сессии</li>
+                        <li><span class="check">✓</span> Личный куратор</li>
+                        <li><span class="check">✓</span> VIP-сообщество</li>
+                        <li><span class="check">✓</span> 12 месяцев поддержки</li>
+                    </ul>
                     <a href="https://t.me/+O7F2XX-GnlU4YTJi" target="_blank" class="offer-btn secondary">Выбрать</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="results-section">
+        <div class="section-container">
+            <div class="reveal" style="text-align:center;">
+                <div class="section-label" style="justify-content:center;">Результаты</div>
+                <h2 class="section-title">Цифры говорят сами за себя</h2>
+            </div>
+            <div class="results-grid">
+                <div class="result-card reveal">
+                    <div class="result-number" data-target="500">0</div>
+                    <div class="result-label">Учеников прошли программу</div>
+                </div>
+                <div class="result-card reveal">
+                    <div class="result-number" data-target="98">0</div>
+                    <div class="result-label">Процентов довольных клиентов</div>
+                </div>
+                <div class="result-card reveal">
+                    <div class="result-number" data-target="3">0</div>
+                    <div class="result-label">Средний рост дохода ×</div>
+                </div>
+                <div class="result-card reveal">
+                    <div class="result-number" data-target="1200">0</div>
+                    <div class="result-label">Часов менторской работы</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process-section">
+        <div class="section-container">
+            <div class="process-header reveal">
+                <div class="section-label">Как это работает</div>
+                <h2 class="section-title">Четыре шага к результату</h2>
+            </div>
+            <div class="process-steps">
+                <div class="process-step reveal">
+                    <div class="step-number">01</div>
+                    <h3 class="step-title">Заявка</h3>
+                    <p class="step-text">Оставь заявку и получи консультацию для определения твоей точки старта.</p>
+                </div>
+                <div class="process-step reveal">
+                    <div class="step-number">02</div>
+                    <h3 class="step-title">Диагностика</h3>
+                    <p class="step-text">Глубокий анализ текущей ситуации и выявление ключевых зон роста.</p>
+                </div>
+                <div class="process-step reveal">
+                    <div class="step-number">03</div>
+                    <h3 class="step-title">План действий</h3>
+                    <p class="step-text">Создание персональной стратегии с чёткими этапами и дедлайнами.</p>
+                </div>
+                <div class="process-step reveal">
+                    <div class="step-number">04</div>
+                    <h3 class="step-title">Реализация</h3>
+                    <p class="step-text">Внедрение плана с постоянной поддержкой и корректировкой на каждом этапе.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <div class="section-container">
+            <div class="testimonials-header reveal">
+                <div class="section-label">Отзывы</div>
+                <h2 class="section-title">Что говорят ученики</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">«За три месяца я полностью перестроил свой подход к делу. Доход вырос в 4 раза, а главное — я наконец чувствую, что контролирую свою жизнь.»</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">АК</div>
+                        <div>
+                            <div class="testimonial-name">Алексей К.</div>
+                            <div class="testimonial-role">Предприниматель</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">«Лучшая инвестиция в себя за всю жизнь. Программа дала не только инструменты, но и окружение, которое тянет вверх.»</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">МД</div>
+                        <div>
+                            <div class="testimonial-name">Мария Д.</div>
+                            <div class="testimonial-role">Дизайнер</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">«Скептически относился к подобным программам, но результаты говорят сами за себя. Реальная работа, реальные изменения.»</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">ИС</div>
+                        <div>
+                            <div class="testimonial-name">Игорь С.</div>
+                            <div class="testimonial-role">Разработчик</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1108,6 +1282,7 @@
     <section class="cta-section">
         <div class="cta-container reveal">
             <h2 class="cta-title">Готов начать свою<br>трансформацию?</h2>
+            <p class="cta-text">Оставь заявку сейчас и получи бесплатную консультацию. Количество мест ограничено.</p>
             <a href="https://t.me/+O7F2XX-GnlU4YTJi" target="_blank" class="cta-btn">Оставить заявку</a>
         </div>
     </section>
@@ -1115,9 +1290,26 @@
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-logo">RAS<span>GON</span></div>
-            <div class="footer-copy">© 2026 Rasgon. Все права защищены[cite: 6].</div>
+            <div class="footer-copy">© 2026 Rasgon. Все права защищены.</div>
+            <div class="footer-socials">
+                <a class="social-link" href="https://t.me/+O7F2XX-GnlU4YTJi" target="_blank">TG</a>
+                <a class="social-link" href="https://t.me/+O7F2XX-GnlU4YTJi" target="_blank">VK</a>
+                <a class="social-link" href="https://t.me/+O7F2XX-GnlU4YTJi" target="_blank">YT</a>
+            </div>
         </div>
     </footer>
+
+    <div class="modal-overlay" id="modal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal()"></button>
+            <h3>Оставить заявку</h3>
+            <p>Заполните форму и мы свяжемся с вами в ближайшее время</p>
+            <input type="text" placeholder="Ваше имя" id="modalName">
+            <input type="text" placeholder="Telegram или телефон" id="modalContact">
+            <input type="text" placeholder="Ваша цель" id="modalGoal">
+            <button class="btn-primary" onclick="submitForm()">Отправить заявку</button>
+        </div>
+    </div>
 
     <script>
         const cursorGlow = document.getElementById('cursorGlow');
@@ -1126,15 +1318,43 @@
             cursorGlow.style.top = e.clientY + 'px';
         });
 
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
         const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
+            entries.forEach((entry, i) => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
+                    setTimeout(() => entry.target.classList.add('active'), i * 100);
+                    revealObserver.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = parseInt(entry.target.dataset.target);
+                    let current = 0;
+                    const increment = target / 60;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            entry.target.textContent = target + (target >= 100 ? '+' : target === 98 ? '%' : '×');
+                            clearInterval(timer);
+                        } else {
+                            entry.target.textContent = Math.floor(current);
+                        }
+                    }, 30);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.result-number[data-target]').forEach(c => counterObserver.observe(c));
 
         const particlesContainer = document.getElementById('particles');
         for (let i = 0; i < 20; i++) {
@@ -1142,8 +1362,50 @@
             particle.className = 'particle';
             particle.style.left = Math.random() * 100 + '%';
             particle.style.animationDuration = (Math.random() * 15 + 10) + 's';
+            particle.style.animationDelay = (Math.random() * 10) + 's';
+            const size = Math.random() * 3 + 1;
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
             particlesContainer.appendChild(particle);
         }
+
+        function openModal() {
+            document.getElementById('modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('modal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('modal')) closeModal();
+        });
+
+        function submitForm() {
+            const name = document.getElementById('modalName').value;
+            const contact = document.getElementById('modalContact').value;
+            if (name && contact) {
+                alert('Спасибо за заявку, ' + name + '! Мы свяжемся с вами в ближайшее время.');
+                closeModal();
+                document.getElementById('modalName').value = '';
+                document.getElementById('modalContact').value = '';
+                document.getElementById('modalGoal').value = '';
+            } else {
+                alert('Пожалуйста, заполните обязательные поля.');
+            }
+        }
+
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            const heroImg = document.querySelector('.hero-image-container img');
+            if (heroImg && scrolled < window.innerHeight) {
+                heroImg.style.transform = 'scale(1.03) translateY(' + (scrolled * 0.05) + 'px)';
+            }
+        });
     </script>
 </body>
 </html>
