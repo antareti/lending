@@ -13,15 +13,15 @@
         }
 
         :root {
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #111111;
-            --bg-card: #1a1a1a;
-            --accent: #c8ff00;
-            --accent-dim: #a8d600;
-            --text-primary: #ffffff;
-            --text-secondary: #888888;
-            --text-muted: #555555;
-            --border: #2a2a2a;
+            --bg-primary: #060000;
+            --bg-secondary: #0d0000;
+            --bg-card: #160000;
+            --accent: #ff0a2a;
+            --accent-dim: #cc0822;
+            --text-primary: #ff1e3a;
+            --text-secondary: #cc3344;
+            --text-muted: #5a1a1a;
+            --border: #2a0505;
         }
 
         html { scroll-behavior: smooth; }
@@ -48,7 +48,7 @@
             position: fixed;
             width: 400px; height: 400px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(200, 255, 0, 0.06) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255, 10, 42, 0.06) 0%, transparent 70%);
             pointer-events: none;
             z-index: 1;
             transform: translate(-50%, -50%);
@@ -69,7 +69,7 @@
         }
 
         .navbar.scrolled {
-            background: rgba(10, 10, 10, 0.85);
+            background: rgba(6, 0, 0, 0.85);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
             padding: 15px 40px;
@@ -79,6 +79,7 @@
             font-size: 1.4rem;
             font-weight: 800;
             letter-spacing: -0.5px;
+            color: var(--text-primary);
         }
 
         .nav-logo span { color: var(--accent); }
@@ -86,7 +87,7 @@
         .nav-cta {
             padding: 10px 28px;
             background: var(--accent);
-            color: var(--bg-primary);
+            color: #fff;
             border: none;
             border-radius: 100px;
             font-weight: 700;
@@ -101,7 +102,7 @@
 
         .nav-cta:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(200, 255, 0, 0.3);
+            box-shadow: 0 0 30px rgba(255, 10, 42, 0.4);
         }
 
         .hero {
@@ -130,8 +131,8 @@
             align-items: center;
             gap: 8px;
             padding: 8px 20px;
-            background: rgba(200, 255, 0, 0.08);
-            border: 1px solid rgba(200, 255, 0, 0.2);
+            background: rgba(255, 10, 42, 0.08);
+            border: 1px solid rgba(255, 10, 42, 0.25);
             border-radius: 100px;
             font-size: 0.8rem;
             font-weight: 600;
@@ -160,6 +161,7 @@
             font-weight: 700;
             line-height: 1.1;
             margin-bottom: 24px;
+            color: var(--text-primary);
             animation: fadeInUp 0.8s ease 0.1s forwards;
             opacity: 0;
         }
@@ -190,7 +192,7 @@
         .btn-primary {
             padding: 18px 40px;
             background: var(--accent);
-            color: var(--bg-primary);
+            color: #fff;
             border: none;
             border-radius: 100px;
             font-weight: 800;
@@ -222,7 +224,7 @@
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 40px rgba(200, 255, 0, 0.3);
+            box-shadow: 0 10px 40px rgba(255, 10, 42, 0.35);
         }
 
         .btn-secondary {
@@ -262,7 +264,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(180deg, transparent 60%, rgba(10, 10, 10, 0.8) 100%);
+            background: linear-gradient(180deg, transparent 60%, rgba(6, 0, 0, 0.85) 100%);
             z-index: 1;
         }
 
@@ -384,6 +386,7 @@
             font-weight: 700;
             line-height: 1.2;
             margin-bottom: 20px;
+            color: var(--text-primary);
         }
 
         .section-description {
@@ -425,13 +428,13 @@
 
         .about-card:hover {
             transform: translateY(-5px);
-            border-color: rgba(200, 255, 0, 0.2);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 10, 42, 0.25);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
         }
 
         .card-icon {
             width: 60px; height: 60px;
-            background: rgba(200, 255, 0, 0.08);
+            background: rgba(255, 10, 42, 0.08);
             border-radius: 16px;
             display: flex;
             align-items: center;
@@ -444,6 +447,7 @@
             font-size: 1.2rem;
             font-weight: 700;
             margin-bottom: 12px;
+            color: var(--text-primary);
         }
 
         .card-text {
@@ -486,7 +490,7 @@
 
         .offer-card.featured {
             border-color: var(--accent);
-            background: linear-gradient(180deg, rgba(200, 255, 0, 0.05) 0%, var(--bg-card) 100%);
+            background: linear-gradient(180deg, rgba(255, 10, 42, 0.06) 0%, var(--bg-card) 100%);
         }
 
         .offer-card.featured::after {
@@ -495,7 +499,7 @@
             top: -12px; left: 50%;
             transform: translateX(-50%);
             background: var(--accent);
-            color: var(--bg-primary);
+            color: #fff;
             padding: 6px 20px;
             border-radius: 100px;
             font-size: 0.7rem;
@@ -506,7 +510,7 @@
 
         .offer-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
         }
 
         .offer-tier {
@@ -523,12 +527,14 @@
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 12px;
+            color: var(--text-primary);
         }
 
         .offer-price {
             font-size: 3rem;
             font-weight: 800;
             margin-bottom: 8px;
+            color: var(--accent);
         }
 
         .offer-price .currency { font-size: 1.2rem; vertical-align: super; }
@@ -567,7 +573,7 @@
             display: inline-block;
         }
 
-        .offer-btn.primary { background: var(--accent); color: var(--bg-primary); border: none; }
+        .offer-btn.primary { background: var(--accent); color: #fff; border: none; }
         .offer-btn.secondary { background: transparent; color: var(--text-primary); border: 1px solid var(--border); }
         .offer-btn:hover { transform: scale(1.03); }
 
@@ -594,7 +600,7 @@
         }
 
         .result-card:hover {
-            border-color: rgba(200, 255, 0, 0.3);
+            border-color: rgba(255, 10, 42, 0.35);
             transform: translateY(-5px);
         }
 
@@ -635,7 +641,7 @@
 
         .testimonial-card:hover {
             transform: translateY(-5px);
-            border-color: rgba(200, 255, 0, 0.2);
+            border-color: rgba(255, 10, 42, 0.25);
         }
 
         .testimonial-stars { color: var(--accent); font-size: 0.9rem; margin-bottom: 16px; letter-spacing: 2px; }
@@ -658,11 +664,11 @@
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            color: var(--bg-primary);
+            color: #fff;
             font-size: 1rem;
         }
 
-        .testimonial-name { font-weight: 700; font-size: 0.95rem; }
+        .testimonial-name { font-weight: 700; font-size: 0.95rem; color: var(--text-primary); }
         .testimonial-role { font-size: 0.8rem; color: var(--text-muted); }
 
         .process-section {
@@ -710,11 +716,11 @@
 
         .process-step:hover .step-number {
             border-color: var(--accent);
-            background: rgba(200, 255, 0, 0.05);
+            background: rgba(255, 10, 42, 0.08);
             transform: scale(1.1);
         }
 
-        .step-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
+        .step-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; color: var(--text-primary); }
         .step-text { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
 
         .cta-section {
@@ -741,7 +747,7 @@
             position: absolute;
             top: -50%; left: -50%;
             width: 200%; height: 200%;
-            background: radial-gradient(circle at center, rgba(200, 255, 0, 0.03) 0%, transparent 50%);
+            background: radial-gradient(circle at center, rgba(255, 10, 42, 0.04) 0%, transparent 50%);
             pointer-events: none;
         }
 
@@ -751,6 +757,7 @@
             font-weight: 700;
             margin-bottom: 20px;
             position: relative;
+            color: var(--text-primary);
         }
 
         .cta-text { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 40px; position: relative; }
@@ -758,7 +765,7 @@
         .cta-btn {
             padding: 20px 60px;
             background: var(--accent);
-            color: var(--bg-primary);
+            color: #fff;
             border: none;
             border-radius: 100px;
             font-weight: 800;
@@ -774,7 +781,7 @@
 
         .cta-btn:hover {
             transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 15px 50px rgba(200, 255, 0, 0.3);
+            box-shadow: 0 15px 50px rgba(255, 10, 42, 0.4);
         }
 
         .footer {
@@ -792,7 +799,7 @@
             align-items: center;
         }
 
-        .footer-logo { font-size: 1.2rem; font-weight: 800; }
+        .footer-logo { font-size: 1.2rem; font-weight: 800; color: var(--text-primary); }
         .footer-logo span { color: var(--accent); }
         .footer-copy { font-size: 0.8rem; color: var(--text-muted); }
 
@@ -930,7 +937,7 @@
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.85);
             backdrop-filter: blur(10px);
             z-index: 1000;
             display: flex;
@@ -975,7 +982,7 @@
         }
 
         .modal-close:hover { border-color: var(--accent); color: var(--accent); }
-        .modal h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 12px; }
+        .modal h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 12px; color: var(--text-primary); }
         .modal p { color: var(--text-secondary); margin-bottom: 30px; font-size: 0.95rem; }
 
         .modal input {
@@ -1092,7 +1099,7 @@
                     <p class="card-text">Персональная стратегия, адаптированная под твои цели, текущий уровень и темп жизни.</p>
                 </div>
                 <div class="about-card reveal">
-                    <div class="card-icon"></div>
+                    <div class="card-icon">🔥</div>
                     <h3 class="card-title">Ежедневная практика</h3>
                     <p class="card-text">Структурированные ежедневные задания, которые формируют привычки успешных людей.</p>
                 </div>
@@ -1102,12 +1109,12 @@
                     <p class="card-text">Прозрачная система метрик и регулярные отчёты о твоём продвижении к цели.</p>
                 </div>
                 <div class="about-card reveal">
-                    <div class="card-icon"></div>
+                    <div class="card-icon">💬</div>
                     <h3 class="card-title">Личное менторство</h3>
                     <p class="card-text">Прямой доступ к ментору для разбора сложных ситуаций и корректировки стратегии.</p>
                 </div>
                 <div class="about-card reveal">
-                    <div class="card-icon"></div>
+                    <div class="card-icon">🧠</div>
                     <h3 class="card-title">Работа с мышлением</h3>
                     <p class="card-text">Техники перепрограммирования ограничивающих убеждений и установки на рост.</p>
                 </div>
@@ -1301,7 +1308,7 @@
 
     <div class="modal-overlay" id="modal">
         <div class="modal">
-            <button class="modal-close" onclick="closeModal()"></button>
+            <button class="modal-close" onclick="closeModal()">✕</button>
             <h3>Оставить заявку</h3>
             <p>Заполните форму и мы свяжемся с вами в ближайшее время</p>
             <input type="text" placeholder="Ваше имя" id="modalName">
@@ -1358,15 +1365,15 @@
 
         const particlesContainer = document.getElementById('particles');
         for (let i = 0; i < 20; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.animationDuration = (Math.random() * 15 + 10) + 's';
-            particle.style.animationDelay = (Math.random() * 10) + 's';
+            const p = document.createElement('div');
+            p.className = 'particle';
+            p.style.left = Math.random() * 100 + '%';
+            p.style.animationDuration = (Math.random() * 15 + 10) + 's';
+            p.style.animationDelay = (Math.random() * 10) + 's';
             const size = Math.random() * 3 + 1;
-            particle.style.width = size + 'px';
-            particle.style.height = size + 'px';
-            particlesContainer.appendChild(particle);
+            p.style.width = size + 'px';
+            p.style.height = size + 'px';
+            particlesContainer.appendChild(p);
         }
 
         function openModal() {
@@ -1409,3 +1416,4 @@
     </script>
 </body>
 </html>
+
