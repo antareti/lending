@@ -35,31 +35,23 @@ width:100%;
 height:100%;
 pointer-events:none;
 z-index:1;
-overflow:hidden;
 }
 
 .snowflake{
 position:absolute;
 top:-10px;
-width:6px;
-height:6px;
+width:5px;
+height:5px;
 background:var(--accent);
 border-radius:50%;
-opacity:0.8;
 animation:fall linear infinite;
-box-shadow:0 0 10px var(--accent);
+opacity:0.7;
 }
 
 @keyframes fall{
-to{
-transform:translateY(110vh);
-opacity:0;
-}
+to{transform:translateY(110vh);opacity:0}
 }
 
-a{text-decoration:none;color:inherit}
-
-/* NAV */
 nav{
 position:fixed;
 top:0;
@@ -71,10 +63,7 @@ z-index:100;
 backdrop-filter:blur(10px);
 }
 
-.logo{
-font-weight:900;
-}
-
+.logo{font-weight:900}
 .logo span{color:var(--accent)}
 
 .btn{
@@ -84,14 +73,13 @@ border-radius:50px;
 font-weight:800;
 }
 
-/* HERO */
 .hero{
 min-height:100vh;
 display:flex;
 align-items:center;
 padding:120px 50px;
-position:relative;
 z-index:2;
+position:relative;
 }
 
 .hero h1{
@@ -109,32 +97,28 @@ color:var(--muted);
 font-size:1.1rem;
 }
 
-/* КНОПКИ */
 .cta{
 display:inline-block;
 padding:16px 40px;
 background:var(--accent);
 border-radius:50px;
 font-weight:900;
+cursor:pointer;
 transition:.3s;
 }
 
 .cta:hover{
 transform:scale(1.05);
-box-shadow:0 0 25px var(--accent);
+box-shadow:0 0 20px var(--accent);
 }
 
-/* SECTION */
 section{
 padding:120px 50px;
 position:relative;
 z-index:2;
 }
 
-h2{
-font-size:2.5rem;
-margin-bottom:20px;
-}
+h2{font-size:2.5rem;margin-bottom:20px}
 
 .desc{
 max-width:700px;
@@ -142,7 +126,6 @@ color:var(--muted);
 margin-bottom:60px;
 }
 
-/* GRID */
 .grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
@@ -154,24 +137,15 @@ background:var(--card);
 padding:30px;
 border:1px solid var(--border);
 border-radius:16px;
-transition:.3s;
 }
 
-.card:hover{
-transform:translateY(-5px);
-border-color:var(--accent);
-}
-
-/* FINAL CTA */
 .final{
 text-align:center;
 background:#0b0000;
 padding:120px 50px;
 }
 
-.final h2{
-font-size:3rem;
-}
+.final h2{font-size:3rem}
 
 .final a{
 display:inline-block;
@@ -180,14 +154,49 @@ padding:18px 60px;
 background:var(--accent);
 border-radius:50px;
 font-weight:900;
-transition:.3s;
 }
 
-.final a:hover{
-transform:scale(1.05);
+/* 🔥 FUNNEL */
+.funnel{
+position:fixed;
+top:0;left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.92);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:9999;
+backdrop-filter:blur(10px);
 }
 
-/* FOOTER */
+.funnel-box{
+text-align:center;
+font-size:1.6rem;
+font-weight:800;
+animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+0%{opacity:.4;transform:scale(.98)}
+50%{opacity:1;transform:scale(1)}
+100%{opacity:.4;transform:scale(.98)}
+}
+
+.funnel-final{
+font-size:2.2rem;
+font-weight:900;
+}
+
+.funnel-btn{
+margin-top:25px;
+display:inline-block;
+padding:16px 40px;
+background:var(--accent);
+border-radius:50px;
+font-weight:900;
+}
+
 footer{
 padding:40px;
 text-align:center;
@@ -202,91 +211,94 @@ border-top:1px solid var(--border);
 <!-- 🔴 СНЕГ -->
 <div class="snow" id="snow"></div>
 
+<!-- 🔥 FUNNEL -->
+<div class="funnel" id="funnel">
+<div class="funnel-box" id="funnelText">Анализ доступа...</div>
+</div>
+
 <nav>
 <div class="logo">ГОЛУБОГЛАЗЫЙ <span>ТОННЕЛЬ</span></div>
-<a class="btn" href="https://t.me/+O7F2XX-GnlU4YTJi">🔓 Войти в систему</a>
+<a class="btn" href="javascript:startFunnel()">Войти</a>
 </nav>
 
 <div class="hero">
 <div>
 <h1>
-Закрытая система<br>
+Система<br>
 <span class="accent">личного роста</span>
 </h1>
 
 <p>
-Это не курс. Это система, которая перестраивает твоё мышление и поведение так, чтобы результат стал неизбежным.
+Это не обучение. Это структура, которая меняет поведение и мышление.
 </p>
 
-<a class="cta" href="https://t.me/+O7F2XX-GnlU4YTJi">
-🚀 Получить доступ
-</a>
+<a class="cta" href="javascript:startFunnel()">🚀 Получить доступ</a>
 </div>
 </div>
 
 <section>
-<h2>Что внутри системы</h2>
-<p class="desc">
-Каждый элемент выстроен так, чтобы убрать хаос и дать рост.
-</p>
+<h2>Что внутри</h2>
+<p class="desc">Минимум хаоса. Максимум результата.</p>
 
 <div class="grid">
-
-<div class="card">
-<h3>🎯 Фокус</h3>
-<p>Одна цель. Без лишнего шума.</p>
-</div>
-
-<div class="card">
-<h3>⚙️ Система</h3>
-<p>Чёткие действия вместо мотивации.</p>
-</div>
-
-<div class="card">
-<h3>📈 Рост</h3>
-<p>Результат становится стабильным процессом.</p>
-</div>
-
+<div class="card"><h3>Фокус</h3><p>Одна цель без шума</p></div>
+<div class="card"><h3>Система</h3><p>Действия вместо мотивации</p></div>
+<div class="card"><h3>Рост</h3><p>Стабильный результат</p></div>
 </div>
 </section>
 
 <section class="final">
-<h2>Ты либо внутри, либо наблюдаешь</h2>
-<p style="color:var(--muted);margin-top:15px">
-Решение всегда одно — действие.
-</p>
-
-<a href="https://t.me/+O7F2XX-GnlU4YTJi">
-⚡ Войти сейчас
-</a>
+<h2>Ты либо внутри, либо нет</h2>
+<a href="javascript:startFunnel()">⚡ Войти сейчас</a>
 </section>
 
-<footer>
-© 2026 Голубоглазый Тоннель
-</footer>
+<footer>© 2026 Голубоглазый Тоннель</footer>
 
 <script>
-// ❄️ КРАСНЫЙ СНЕГ
-const snow = document.getElementById("snow");
 
-function createSnow(){
-const el = document.createElement("div");
-el.classList.add("snowflake");
+/* ❄️ СНЕГ */
+const snow=document.getElementById("snow");
 
-const size = Math.random() * 6 + 2;
-el.style.width = size + "px";
-el.style.height = size + "px";
+function drop(){
+const s=document.createElement("div");
+s.classList.add("snowflake");
+s.style.left=Math.random()*100+"vw";
+s.style.animationDuration=(Math.random()*5+3)+"s";
+snow.appendChild(s);
+setTimeout(()=>s.remove(),8000);
+}
+setInterval(drop,80);
 
-el.style.left = Math.random() * 100 + "vw";
-el.style.animationDuration = (Math.random() * 5 + 3) + "s";
-el.style.opacity = Math.random();
+/* 🔥 FUNNEL */
+function startFunnel(){
 
-snow.appendChild(el);
+const f=document.getElementById("funnel");
+const t=document.getElementById("funnelText");
 
-setTimeout(()=>el.remove(),8000);
+f.style.display="flex";
+document.body.style.overflow="hidden";
+
+t.innerHTML="Анализ профиля...";
+
+setTimeout(()=>{
+t.innerHTML="Подбор уровня доступа...";
+},1500);
+
+setTimeout(()=>{
+t.innerHTML="Система подтверждена...";
+},3000);
+
+setTimeout(()=>{
+t.innerHTML=`
+<div class="funnel-final">Доступ открыт</div>
+<a class="funnel-btn" href="https://t.me/+O7F2XX-GnlU4YTJi">
+Перейти в Telegram
+</a>
+`;
+},4500);
+
 }
 
-setInterval(createSnow, 80);
 </script>
 
 </body>
