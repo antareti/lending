@@ -3,37 +3,46 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BLACK HOLE RED</title>
+<title>BLACK HOLE MODE</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
 body{
-background:#000;              /* 🔥 убран белый */
-color:#ff0a2a;
-font-family:Arial;
+background:#000;
 overflow:hidden;
+font-family:Arial;
+color:#ff0a2a;
 }
 
 /* WATER */
 canvas{
 position:fixed;
-inset:0;
+top:0;
+left:0;
+width:100%;
+height:100%;
 z-index:0;
-background:#000;              /* 🔥 фикс белого */
+background:#000;
 }
 
 /* SCREENS */
 .screen{
 position:absolute;
-inset:0;
+top:0;
+left:0;
+width:100%;
+height:100%;
 display:flex;
 align-items:center;
 justify-content:center;
 flex-direction:column;
-transition:1s;
-background:#000;              /* 🔥 фикс белого */
 z-index:2;
+transition:0.6s;
 }
 
 .hidden{
@@ -43,47 +52,35 @@ transform:scale(1.1);
 }
 
 /* TEXT */
-h1,h2{color:#ff0a2a;text-align:center}
+h1,h2{
+font-size:60px;
+text-shadow:0 0 20px #ff0a2a;
+}
 
-/* BUTTON */
+/* BUTTONS */
 .btn{
 margin-top:20px;
-padding:14px 40px;
+padding:15px 40px;
 background:#ff0a2a;
-color:#fff;
-border:none;
+color:white;
+text-decoration:none;
 border-radius:40px;
+font-weight:bold;
+border:none;
 cursor:pointer;
-font-weight:bold;
-text-decoration:none;
+transition:.3s;
 }
 
-/* NAV */
-nav{
-position:fixed;
-top:0;left:0;right:0;
-display:flex;
-justify-content:space-between;
-padding:15px;
-z-index:5;
-background:#000;
+.btn:hover{
+transform:scale(1.1);
+box-shadow:0 0 30px #ff0a2a;
 }
 
-nav a{
-background:#ff0a2a;
-color:#fff;
-padding:8px 15px;
-border-radius:20px;
-text-decoration:none;
-font-weight:bold;
-}
-
-/* GRID */
 .grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:10px;
-margin-top:30px;
+gap:20px;
+margin-top:40px;
 width:80%;
 }
 
@@ -91,18 +88,18 @@ width:80%;
 background:#0a0000;
 border:1px solid #330000;
 padding:20px;
-border-radius:10px;
+border-radius:15px;
 text-align:center;
 }
 
 .card a{
 display:inline-block;
-margin-top:10px;
-padding:8px 15px;
+margin-top:15px;
+padding:10px 20px;
 background:#ff0a2a;
-color:#fff;
-border-radius:20px;
+color:white;
 text-decoration:none;
+border-radius:30px;
 }
 </style>
 </head>
@@ -113,96 +110,183 @@ text-decoration:none;
 
 <!-- SCREEN 1 -->
 <div class="screen" id="s1">
-<h1>BLACK HOLE MODE</h1>
+<h1>BLACK HOLE</h1>
 <button class="btn" onclick="enter()">ENTER</button>
 </div>
 
 <!-- SCREEN 2 -->
 <div class="screen hidden" id="s2">
 
-<nav>
-<div>TONNEL</div>
-<a href="https://t.me/informerhacker_bot">BOT</a>
-</nav>
-
-<h2>СИСТЕМА</h2>
+<h2>SYSTEM</h2>
 
 <div class="grid">
-<div class="card">Фокус<br><a href="https://t.me/informerhacker_bot">Открыть</a></div>
-<div class="card">Система<br><a href="https://t.me/informerhacker_bot">Открыть</a></div>
-<div class="card">Рост<br><a href="https://t.me/informerhacker_bot">Открыть</a></div>
+
+<div class="card">
+Фокус
+<br>
+<a href="https://t.me/informerhacker_bot">OPEN</a>
+</div>
+
+<div class="card">
+Система
+<br>
+<a href="https://t.me/informerhacker_bot">OPEN</a>
+</div>
+
+<div class="card">
+Рост
+<br>
+<a href="https://t.me/informerhacker_bot">OPEN</a>
+</div>
+
 </div>
 
 <button class="btn" onclick="go3()">NEXT</button>
+
 </div>
 
 <!-- SCREEN 3 -->
 <div class="screen hidden" id="s3">
+
 <h2>LEVEL 2</h2>
 
 <div class="grid">
-<div class="card">AI<br><a href="https://t.me/informerhacker_bot">LINK</a></div>
-<div class="card">AUTO<br><a href="https://t.me/informerhacker_bot">LINK</a></div>
-<div class="card">SIGNAL<br><a href="https://t.me/informerhacker_bot">LINK</a></div>
+
+<div class="card">
+AI
+<br>
+<a href="https://t.me/informerhacker_bot">LINK</a>
+</div>
+
+<div class="card">
+AUTO
+<br>
+<a href="https://t.me/informerhacker_bot">LINK</a>
+</div>
+
+<div class="card">
+SIGNAL
+<br>
+<a href="https://t.me/informerhacker_bot">LINK</a>
+</div>
+
 </div>
 
 <button class="btn" onclick="go4()">FINAL</button>
+
 </div>
 
 <!-- SCREEN 4 -->
 <div class="screen hidden" id="s4">
+
 <h2>FINAL ACCESS</h2>
 
-<a class="btn" href="https://t.me/informerhacker_bot">OPEN TELEGRAM</a>
+<a class="btn" href="https://t.me/informerhacker_bot">
+OPEN TELEGRAM
+</a>
+
 </div>
 
 <script>
 
-/* WATER FIX */
+/* WATER */
 const c=document.getElementById("c");
 const ctx=c.getContext("2d");
 
 let w,h,t=0;
 
 function resize(){
-w=c.width=innerWidth;
-h=c.height=innerHeight;
+w=c.width=window.innerWidth;
+h=c.height=window.innerHeight;
 }
-resize();
-addEventListener("resize",resize);
 
-function anim(){
+resize();
+window.addEventListener("resize",resize);
+
+function water(){
+
 ctx.clearRect(0,0,w,h);
 
-for(let i=0;i<5;i++){
+for(let i=0;i<8;i++){
+
 ctx.beginPath();
+
 for(let x=0;x<w;x+=10){
-let y=h/2+Math.sin(x*0.01+t+i)*40;
+
+let y=
+h/2+
+Math.sin(x*0.01+t+i)*40;
+
 ctx.lineTo(x,y+i*20);
+
 }
+
 ctx.strokeStyle="rgba(255,10,42,0.25)";
+ctx.lineWidth=1.5;
 ctx.stroke();
 }
 
 t+=0.03;
-requestAnimationFrame(anim);
-}
-anim();
 
-/* SCREENS */
+requestAnimationFrame(water);
+}
+
+water();
+
+/* TRANSITIONS */
+
+function switchScreen(hide,show){
+
+hide.classList.add("hidden");
+
+show.classList.remove("hidden");
+
+show.animate([
+{
+opacity:0,
+transform:"scale(1.2)",
+filter:"blur(20px)"
+},
+{
+opacity:1,
+transform:"scale(1)",
+filter:"blur(0px)"
+}
+],{
+duration:600,
+easing:"ease"
+});
+
+}
+
+/* ENTER */
 function enter(){
-s1.classList.add("hidden");
-s2.classList.remove("hidden");
+
+switchScreen(
+document.getElementById("s1"),
+document.getElementById("s2")
+);
+
 }
 
+/* NEXT */
 function go3(){
-s2.classList.add("hidden");
-s3.classList.remove("hidden");
+
+switchScreen(
+document.getElementById("s2"),
+document.getElementById("s3")
+);
+
 }
 
+/* FINAL */
 function go4(){
-s3.classList.add("hidden");
-s4.classList.remove("hidden");
+
+switchScreen(
+document.getElementById("s3"),
+document.getElementById("s4")
+);
+
 }
 
 </script>
