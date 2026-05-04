@@ -3,60 +3,58 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Liquid System</title>
+<title>BLACK HOLE MODE</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;900&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-font-family:Inter;
-background:#050000;
-overflow:hidden;
-color:#ff1e3a;
+:root{
+--red:#ff0a2a;
+--dark:#020000;
 }
 
-/* ===== CANVAS WATER ===== */
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Inter;
+background:var(--dark);
+overflow:hidden;
+color:var(--red);
+}
+
+/* CANVAS LIQUID */
 canvas{
 position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
+top:0;left:0;
+width:100%;height:100%;
 z-index:0;
 }
 
-/* ===== FLASH ===== */
+/* FLASH */
 .flash{
 position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:radial-gradient(circle, rgba(255,10,42,0.4), black);
+inset:0;
+background:radial-gradient(circle, rgba(255,10,42,.4), black);
 opacity:0;
-z-index:20;
+z-index:50;
+transition:.6s;
 pointer-events:none;
-transition:0.6s;
 }
 
-/* ===== SNOW ===== */
+/* SNOW */
 .snow{
 position:fixed;
-width:100%;
-height:100%;
+inset:0;
 pointer-events:none;
-z-index:6;
 opacity:0;
-transition:1s;
+z-index:10;
 }
 
 .snowflake{
 position:absolute;
 top:-10px;
-width:4px;
-height:4px;
-background:#ff0a2a;
+width:4px;height:4px;
+background:var(--red);
 border-radius:50%;
 animation:fall linear infinite;
 }
@@ -65,22 +63,20 @@ animation:fall linear infinite;
 to{transform:translateY(110vh);opacity:0}
 }
 
-/* ===== SCREENS ===== */
+/* SCREENS */
 .screen{
 position:absolute;
-width:100%;
-height:100%;
-top:0;
-left:0;
+inset:0;
 transition:1s ease;
 }
 
-/* ===== SCREEN 1 ===== */
+/* SCREEN 1 */
 #screen1{
 display:flex;
 align-items:center;
 justify-content:center;
 flex-direction:column;
+background:radial-gradient(circle at center,#120000,#000);
 z-index:10;
 }
 
@@ -88,33 +84,33 @@ z-index:10;
 font-size:4rem;
 font-weight:900;
 text-align:center;
+text-shadow:0 0 30px var(--red);
 }
 
 .btn{
 margin-top:30px;
 padding:16px 40px;
-background:#ff0a2a;
-color:#fff;
+background:var(--red);
+border:none;
 border-radius:50px;
 font-weight:900;
 cursor:pointer;
-border:none;
+color:#fff;
 transition:.3s;
 }
 
 .btn:hover{
 transform:scale(1.1);
-box-shadow:0 0 30px #ff0a2a;
+box-shadow:0 0 40px var(--red);
 }
 
-/* ===== SCREEN 2 ===== */
-#screen2{
+/* SCREEN 2-4 */
+.screen2, .screen3, .screen4{
 opacity:0;
-transform:scale(0.95);
+transform:scale(.95);
 filter:blur(10px);
-background:#060000;
 padding:40px;
-z-index:5;
+background:radial-gradient(circle,#050000,#000);
 }
 
 /* NAV */
@@ -128,29 +124,15 @@ align-items:center;
 font-weight:900;
 }
 
-.logo span{color:#ff0a2a}
+.logo span{color:var(--red)}
 
-.btn-small{
+.navbtn{
 padding:8px 18px;
-background:#ff0a2a;
-color:white;
+background:var(--red);
+color:#fff;
 border-radius:50px;
 text-decoration:none;
 font-weight:900;
-}
-
-/* HERO */
-.hero{
-margin-top:60px;
-}
-
-.hero h2{
-font-size:2.5rem;
-}
-
-.hero p{
-color:#8a2a2a;
-margin-top:10px;
 }
 
 /* GRID */
@@ -162,8 +144,8 @@ margin-top:40px;
 }
 
 .card{
-background:#120000;
-border:1px solid #2a0505;
+background:#0b0000;
+border:1px solid #2a0000;
 padding:25px;
 border-radius:15px;
 transition:.3s;
@@ -171,32 +153,19 @@ transition:.3s;
 
 .card:hover{
 transform:translateY(-10px);
-border-color:#ff0a2a;
-box-shadow:0 10px 40px rgba(255,10,42,0.2);
-}
-
-.card h3{margin-bottom:10px}
-
-.card p{
-color:#8a2a2a;
-font-size:14px;
+border-color:var(--red);
+box-shadow:0 0 30px rgba(255,10,42,.2);
 }
 
 .card a{
 display:inline-block;
 margin-top:15px;
 padding:10px 18px;
-background:#ff0a2a;
+background:var(--red);
 color:white;
 border-radius:50px;
 text-decoration:none;
 font-weight:900;
-transition:.3s;
-}
-
-.card a:hover{
-transform:scale(1.1);
-box-shadow:0 0 25px #ff0a2a;
 }
 
 /* FINAL */
@@ -205,14 +174,14 @@ text-align:center;
 margin-top:60px;
 }
 
-.big-btn{
-display:inline-block;
+.big{
 padding:18px 60px;
-background:#ff0a2a;
-color:white;
+background:var(--red);
+color:#fff;
 border-radius:50px;
 font-weight:900;
 text-decoration:none;
+display:inline-block;
 }
 </style>
 </head>
@@ -221,142 +190,159 @@ text-decoration:none;
 
 <div class="flash" id="flash"></div>
 <div class="snow" id="snow"></div>
-
 <canvas id="water"></canvas>
 
 <!-- SCREEN 1 -->
 <div class="screen" id="screen1">
-
 <div>
-<div class="title">LIQUID<br>SYSTEM</div>
+<div class="title">BLACK HOLE<br>MODE</div>
 <button class="btn" onclick="enter()">ENTER</button>
 </div>
-
 </div>
 
 <!-- SCREEN 2 -->
-<div class="screen" id="screen2">
+<div class="screen screen2" id="screen2">
 
 <nav>
 <div class="logo">ТОННЕЛЬ <span>PRO</span></div>
-<a class="btn-small" href="https://t.me/+O7F2XX-GnlU4YTJi">Войти</a>
+<a class="navbtn" href="https://t.me/informerhacker_bot">BOT</a>
 </nav>
 
-<div class="hero">
 <h2>Система роста</h2>
-<p>Действие → результат → рост</p>
 
 <div class="grid">
 
 <div class="card">
 <h3>Фокус</h3>
-<p>Убираешь шум и лишнее</p>
-<a href="https://t.me/+O7F2XX-GnlU4YTJi">Подробнее</a>
+<p>Убираешь шум</p>
+<a href="#screen3" onclick="show(3)">Далее</a>
 </div>
 
 <div class="card">
 <h3>Система</h3>
-<p>Чёткий план действий</p>
-<a href="https://t.me/+O7F2XX-GnlU4YTJi">Подробнее</a>
+<p>Структура действий</p>
+<a href="#screen3" onclick="show(3)">Далее</a>
 </div>
 
 <div class="card">
 <h3>Рост</h3>
-<p>Реальный прогресс</p>
-<a href="https://t.me/+O7F2XX-GnlU4YTJi">Подробнее</a>
+<p>Результат</p>
+<a href="#screen3" onclick="show(3)">Далее</a>
 </div>
 
 </div>
 
 <div class="final">
-<a class="big-btn" href="https://t.me/+O7F2XX-GnlU4YTJi">⚡ Войти в систему</a>
+<a class="big" href="#screen4" onclick="show(4)">NEXT LEVEL</a>
 </div>
 
+</div>
+
+<!-- SCREEN 3 -->
+<div class="screen screen3" id="screen3">
+
+<nav>
+<div class="logo">MODULE <span>02</span></div>
+<a class="navbtn" href="https://t.me/informerhacker_bot">CONNECT</a>
+</nav>
+
+<h2>Усиление системы</h2>
+
+<div class="grid">
+
+<div class="card">AI анализ<a href="#screen4" onclick="show(4)">OK</a></div>
+<div class="card">Авто рост<a href="#screen4" onclick="show(4)">OK</a></div>
+<div class="card">Сигналы<a href="#screen4" onclick="show(4)">OK</a></div>
+
+</div>
+
+</div>
+
+<!-- SCREEN 4 -->
+<div class="screen screen4" id="screen4">
+
+<nav>
+<div class="logo">FINAL <span>ACCESS</span></div>
+<a class="navbtn" href="https://t.me/informerhacker_bot">START</a>
+</nav>
+
+<h2>Вход в систему</h2>
+
+<div class="final">
+<a class="big" href="https://t.me/informerhacker_bot">ОТКРЫТЬ TELEGRAM</a>
 </div>
 
 </div>
 
 <script>
 
-/* ===== WATER ===== */
+/* LIQUID WATER */
 const canvas=document.getElementById("water");
 const ctx=canvas.getContext("2d");
-
 let w,h,t=0;
 
 function resize(){
 w=canvas.width=innerWidth;
 h=canvas.height=innerHeight;
 }
-resize();
-addEventListener("resize",resize);
+resize();addEventListener("resize",resize);
 
 function wave(){
 ctx.clearRect(0,0,w,h);
-
 for(let i=0;i<6;i++){
 ctx.beginPath();
 for(let x=0;x<w;x+=10){
 let y=h/2+Math.sin(x*0.01+t+i)*40;
-ctx.lineTo(x,y+i*25);
+ctx.lineTo(x,y+i*20);
 }
-ctx.strokeStyle="rgba(255,10,42,0.12)";
+ctx.strokeStyle="rgba(255,10,42,.15)";
 ctx.stroke();
 }
-
 t+=0.03;
 requestAnimationFrame(wave);
 }
 wave();
 
-/* ===== SNOW ===== */
-const snow=document.getElementById("snow");
+/* TRANSITION */
+function enter(){
+document.getElementById("flash").style.opacity=1;
 
-function drop(){
-const s=document.createElement("div");
+setTimeout(()=>{
+document.getElementById("screen1").style.display="none";
+document.getElementById("screen2").style.opacity=1;
+document.getElementById("screen2").style.transform="scale(1)";
+document.getElementById("screen2").style.filter="blur(0)";
+},500);
+
+/* snow start */
+setTimeout(()=>{
+document.getElementById("snow").style.opacity=1;
+setInterval(()=>{
+let s=document.createElement("div");
 s.className="snowflake";
 s.style.left=Math.random()*100+"vw";
 s.style.animationDuration=(Math.random()*5+3)+"s";
-snow.appendChild(s);
+document.getElementById("snow").appendChild(s);
 setTimeout(()=>s.remove(),8000);
-}
-
-/* ===== TRANSITION ===== */
-function enter(){
-
-const s1=document.getElementById("screen1");
-const s2=document.getElementById("screen2");
-const flash=document.getElementById("flash");
-
-/* water flash */
-flash.style.opacity=1;
-
-/* exit screen1 */
-s1.style.opacity=0;
-s1.style.transform="scale(1.1)";
-s1.style.filter="blur(20px)";
-
-/* enter screen2 */
-setTimeout(()=>{
-s2.style.opacity=1;
-s2.style.transform="scale(1)";
-s2.style.filter="blur(0px)";
-},400);
-
-/* start snow */
-setTimeout(()=>{
-snow.style.opacity=1;
-setInterval(drop,60);
+},80);
 },900);
 
-/* cleanup */
-setTimeout(()=>{
-flash.style.opacity=0;
-s1.style.display="none";
-},800);
-
+setTimeout(()=>flash.style.opacity=0,800);
 }
 
+/* SCREEN SWITCH */
+function show(n){
+for(let i=2;i<=4;i++){
+let el=document.getElementById("screen"+i);
+el.style.opacity=0;
+el.style.transform="scale(.95)";
+el.style.filter="blur(10px)";
+}
+let active=document.getElementById("screen"+n);
+active.style.opacity=1;
+active.style.transform="scale(1)";
+active.style.filter="blur(0)";
+}
 </script>
 
 </body>
